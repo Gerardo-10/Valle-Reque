@@ -1,0 +1,80 @@
+/* Variables CSS globales (si no están ya en un archivo compartido) */
+:root {
+  --sidebar-width: 250px;
+  --header-height: 60px;
+  --transition: all 0.3s ease;
+  --bg-color: #f0f2f5;
+  --bg-white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Contenedor principal de la aplicación */
+.app-container {
+  display: flex;
+  min-height: 100vh; /* Asegura que la aplicación ocupe al menos la altura completa de la ventana */
+  background-color: var(--bg-color); /* Fondo general de la aplicación */
+}
+
+/* Contenido principal que se ajusta al sidebar */
+.main-content {
+  flex: 1; /* Ocupa el espacio restante después del sidebar */
+  transition: margin-left var(--transition), width var(--transition); /* Transición para un movimiento suave */
+  position: relative; /* Para posicionar elementos internos si es necesario */
+  min-height: 100vh;
+  overflow-x: hidden; /* Evita barras de scroll horizontales no deseadas */
+}
+
+/* Contenedor interno para el contenido de las páginas */
+.content-wrapper {
+  padding: 30px; /* Espacio alrededor del contenido real de la página */
+  /* Altura mínima para asegurar que el footer (si existiera) se mantenga abajo */
+  min-height: calc(100vh - var(--header-height)); 
+}
+
+/* Overlay para el sidebar en vistas móviles */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 99; /* Por debajo de la barra de navegación (z-index: 99) y modales (z-index: 1000) pero por encima del main content */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Media Queries --- */
+
+/* Para pantallas más grandes que 992px, el sidebar es fijo y el main content tiene margen */
+/* No se necesitan reglas específicas aquí ya que el JS maneja el `style` inline */
+
+
+/* Teléfonos y tabletas (menos de 992px) */
+@media (max-width: 992px) {
+  .main-content {
+    /* En móvil, el main content ocupa el 100% y no tiene margen izquierdo */
+    margin-left: 0 !important; 
+    width: 100% !important;
+  }
+}
+
+/* Pantallas aún más pequeñas (ajustes generales) */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 20px 15px; /* Reducir padding en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .content-wrapper {
+    padding: 15px 10px; /* Reducir aún más el padding */
+  }
+}

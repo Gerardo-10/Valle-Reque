@@ -1,0 +1,308 @@
+/* Variables CSS globales (si no están ya en un archivo compartido) */
+:root {
+  --header-height: 60px;
+  --bg-white: #ffffff;
+  --border-color: #e0e0e0;
+  --text-dark: #333333;
+  --text-secondary: #555555;
+  --text-light: #777777;
+  --primary-green: #4CAF50;
+  --accent-color: #4CAF50; /* Color de acento (verde) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Encabezado superior (Navbar) */
+.top-header {
+  height: var(--header-height);
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: sticky; /* Se mantiene en la parte superior al hacer scroll */
+  top: 0;
+  z-index: 99; /* Menor que modales (1000) pero mayor que el contenido principal */
+  box-shadow: var(--shadow-sm);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Botón de alternar menú para móvil */
+.menu-toggle-mobile {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  display: none; /* Oculto por defecto en desktop, visible en media query */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.menu-toggle-mobile:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.header-left h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Caja de búsqueda */
+.search-box {
+  position: relative;
+  width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 15px 8px 35px; /* Espacio para el ícono */
+  border: 1px solid var(--border-color);
+  border-radius: 20px; /* Borde redondeado */
+  font-size: 13px;
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.search-box svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+/* Botones de ícono (ej. notificaciones) */
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+  position: absolute;
+  top: -5px; /* Ajuste para posicionar la insignia */
+  right: -5px;
+  background-color: #f44336; /* Rojo */
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 18px; /* Asegura un tamaño mínimo si el número es solo 1 dígito */
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px; /* Pequeño padding horizontal para números de 2 dígitos */
+}
+
+/* Perfil de usuario y dropdown */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 10px; /* Padding para el área clickeable */
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.user-profile:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  /* Oculto en móvil */
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color); /* Borde sutil al avatar */
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px); /* Posicionar debajo del perfil */
+  right: 0;
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  width: 280px;
+  z-index: 1001; /* Más alto que el navbar y modales para superponerse */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* Ligero desplazamiento para la animación */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.user-profile.active .user-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.avatar-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+
+.user-details h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.user-details p {
+  font-size: 13px;
+}
+
+.dropdown-body {
+  padding: 10px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(76, 175, 80, 0.05);
+  color: var(--accent-color);
+}
+
+.dropdown-item svg {
+  font-size: 16px;
+  width: 20px; /* Ancho fijo para alinear íconos */
+  text-align: center;
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 992px) {
+  /* En tablets y móviles, el botón de menú para móvil es visible */
+  .menu-toggle-mobile {
+    display: flex; /* Ahora es visible */
+  }
+
+  /* La barra de búsqueda se oculta en tabletas y móviles */
+  .search-box {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-header {
+    padding: 0 15px; /* Reducir padding en pantallas más pequeñas */
+  }
+
+  /* Ocultar el nombre de usuario en móviles pequeños para ahorrar espacio */
+  .user-info {
+    display: none;
+  }
+
+  .user-profile {
+    padding: 5px; /* Reducir el padding alrededor del avatar */
+    gap: 0;
+  }
+
+  .user-dropdown {
+    width: 250px; /* Ajustar ancho del dropdown */
+    right: -5px; /* Ajustar posición para que no se salga de la pantalla */
+  }
+}
+
+@media (max-width: 576px) {
+  .top-header {
+    padding: 0 10px; /* Más reducción del padding */
+  }
+
+  .badge {
+    top: -3px; /* Ajuste para el badge en pantallas muy pequeñas */
+    right: -3px;
+  }
+
+  .dropdown-header {
+    padding: 15px; /* Reducir padding del header del dropdown */
+  }
+
+  .avatar-large {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-details h4 {
+    font-size: 14px;
+  }
+
+  .user-details p {
+    font-size: 12px;
+  }
+}

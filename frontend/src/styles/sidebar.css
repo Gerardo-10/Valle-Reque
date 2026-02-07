@@ -1,0 +1,248 @@
+/* Variables CSS globales (si no están ya en un archivo compartido) */
+:root {
+  --sidebar-width: 250px;
+  --header-height: 60px;
+  --bg-white: #ffffff;
+  --border-color: #e0e0e0;
+  --text-dark: #333333;
+  --text-secondary: #555555;
+  --accent-color: #4CAF50; /* Color de acento (verde) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --radius-md: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Sidebar principal */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-white);
+  border-right: 1px solid var(--border-color);
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  z-index: 100; /* Mayor que el main content, igual que navbar (pero a la izquierda) */
+  transition: transform var(--transition), box-shadow var(--transition); /* Transición para abrir/cerrar y sombra */
+  box-shadow: var(--shadow-sm); /* Sombra sutil */
+  overflow-y: auto; /* Permite scroll si el contenido es largo */
+}
+
+/* Estado del sidebar para móvil: oculto por defecto */
+@media (max-width: 991px) { /* Usar 991px para no solapar con 992px en el JS */
+  .sidebar {
+    transform: translateX(-100%); /* Oculta el sidebar a la izquierda */
+    box-shadow: none; /* Sin sombra cuando está oculto */
+  }
+  .sidebar.active {
+    transform: translateX(0); /* Muestra el sidebar */
+    box-shadow: var(--shadow-lg); /* Sombra más pronunciada cuando está activo en móvil */
+  }
+}
+
+/* Encabezado del sidebar (logo y toggle) */
+.sidebar-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-white); /* Asegura que el header tenga fondo blanco */
+  position: sticky; /* Sticky para que el header no se oculte al hacer scroll en el sidebar */
+  top: 0;
+  z-index: 2; /* Para estar por encima de los elementos de navegación del sidebar al hacer scroll */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-link {
+  text-decoration: none; /* Eliminar subrayado del enlace */
+  color: inherit; /* Heredar color del padre */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.logo span {
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap; /* Evita que el texto se rompa */
+  color: var(--text-dark);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+/* Botón de alternar menú (visible solo en desktop) */
+.menu-toggle {
+  display: block; /* Visible por defecto en desktop */
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  width: 35px; /* Tamaño del botón */
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.menu-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: none; /* Ocultar en móvil, ya que el Navbar tiene su propio toggle */
+  }
+}
+
+
+/* Navegación del sidebar */
+.sidebar-nav {
+  padding: 15px 0;
+}
+
+.nav-section {
+  margin-bottom: 5px; /* Espacio entre secciones de navegación (ej. Seguridad, Logística) */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  gap: 12px; /* Espacio entre ícono y texto */
+  position: relative; /* Para el border-left activo */
+}
+
+.nav-item:hover {
+  background-color: rgba(76, 175, 80, 0.05);
+  color: var(--accent-color);
+}
+
+.nav-item.active {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--accent-color);
+  font-weight: 500;
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Estilo para items que tienen un hijo activo (mantener la sección expandida) */
+.nav-item.has-active-child {
+  background-color: rgba(76, 175, 80, 0.08); /* Ligeramente diferente para indicar sub-activo */
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+
+.nav-item svg {
+  font-size: 16px;
+  width: 20px; /* Ancho fijo para alinear íconos */
+  text-align: center;
+}
+
+/* Flecha de submenú */
+.submenu-arrow {
+  margin-left: auto; /* Empuja la flecha a la derecha */
+  transition: transform 0.3s ease;
+}
+
+.submenu-arrow.rotate {
+  transform: rotate(90deg); /* Rota la flecha al expandir */
+}
+
+/* Submenú */
+.nav-submenu {
+  padding-left: 20px; /* Indentación para submenú */
+  max-height: 0; /* Por defecto colapsado */
+  overflow: hidden; /* Oculta el contenido extra */
+  transition: max-height 0.3s ease; /* Animación de expansión/colapso */
+}
+
+.nav-subitem {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  gap: 12px;
+  font-size: 13px;
+}
+
+.nav-subitem:hover {
+  color: var(--accent-color);
+}
+
+.nav-subitem.active {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.nav-subitem svg {
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+}
+
+/* --- Media Queries (Duplicados removidos y consolidados) --- */
+
+/* Estos media queries ya estaban en los archivos originales pero con duplicidad.
+   Se consolidan aquí. Si hay un archivo 'base.css' o 'globals.css'
+   donde se manejen responsividad general, es mejor moverlos allí. */
+
+@media (max-width: 768px) {
+  .sidebar-header {
+    padding: 0 15px; /* Reducir padding en pantallas más pequeñas */
+  }
+  .logo span {
+    font-size: 16px; /* Reducir tamaño de fuente del logo */
+  }
+  .nav-item {
+    padding: 10px 15px; /* Reducir padding de ítems */
+    font-size: 13px;
+  }
+  .nav-subitem {
+    padding: 8px 15px; /* Reducir padding de sub-ítems */
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar-header {
+    padding: 0 10px;
+  }
+  .logo span {
+    font-size: 15px;
+  }
+  .logo-img {
+    width: 25px;
+    height: 25px;
+  }
+  .nav-item svg {
+    font-size: 14px;
+    width: 18px;
+  }
+  .nav-subitem svg {
+    font-size: 12px;
+    width: 16px;
+  }
+}

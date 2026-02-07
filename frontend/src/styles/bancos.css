@@ -1,0 +1,368 @@
+/* Estilos generales para bancos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f4f0;
+  color: #333;
+}
+
+.banco-container {
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Estilos del encabezado de bancos */
+.banco-header {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  padding: 20px;
+}
+
+.banco-header-content {
+  display: flex;
+  align-items: center;
+  
+}
+
+
+.banco-header-content h1{
+  color: #ffffff;
+}
+
+.banco-header-icon {
+  margin-right: 15px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;  
+}
+
+/* Estilos del contenido principal de bancos */
+.banco-content {
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.banco-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+ 
+}
+
+.banco-content-header h2 {
+  font-size: 30px;
+}
+
+
+.banco-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+.banco-btn-primary {
+  background-color: #4caf50;
+  color: white;
+}
+
+.banco-btn-primary:hover {
+  background-color: #45a049;
+}
+
+.banco-btn-secondary {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.banco-btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.banco-btn-success {
+  background-color: #2196f3;
+  color: white;
+}
+
+.banco-btn-success:hover {
+  background-color: #0b7dda;
+}
+
+/* Estilos de la tabla de bancos */
+.banco-table-container {
+  overflow-x: auto;
+}
+
+.banco-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.banco-table th,
+.banco-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.banco-table th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+}
+
+.banco-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilos para el estado de bancos */
+.banco-estado {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.banco-activo {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.banco-inactivo {
+  background-color: #ffebee;
+  color: #f44336;
+}
+
+/* Estilos para las acciones de bancos */
+.banco-acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.banco-btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.banco-btn-edit:hover {
+  color: #2196f3;
+}
+
+.banco-btn-toggle:hover {
+  color: #4caf50;
+}
+
+/* Estilos para el logo del banco */
+.banco-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.banco-nombre {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el modal de bancos */
+.banco-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banco-modal-contenido {
+  background-color: #fff;
+  margin: 5% auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: bancoModalFadeIn 0.3s;
+}
+
+@keyframes bancoModalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.banco-modal-encabezado {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.banco-modal-encabezado h2{
+   font-size: 24px; /* Puedes ajustar el valor según lo necesites */
+}
+
+.banco-modal-cerrar {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.banco-modal-cuerpo {
+  padding: 20px;
+}
+
+/* Estilos para el formulario de bancos */
+.banco-form-grupo {
+  margin-bottom: 20px;
+}
+
+.banco-form-grupo label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.banco-required {
+  color: #f44336;
+  margin-left: 3px;
+}
+
+.banco-form-grupo input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.banco-form-grupo input[type="text"]:focus {
+  border-color: #2196f3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.banco-form-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Estilos para la carga de logo de bancos */
+.banco-logo-upload-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+
+.banco-logo-preview {
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.banco-logo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.banco-logo-upload {
+  flex: 1;
+}
+
+.banco-upload-label {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #f1f1f1;
+  color: #333;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 80x;         /* Ancho fijo */
+  height: 50px;         /* Alto fijo */
+  
+}
+
+
+.banco-upload-label:hover {
+  background-color: #e0e0e0;
+}
+
+.banco-file-input {
+  display: none;
+}
+
+/* Estilos responsivos para bancos */
+@media (max-width: 768px) {
+  .banco-content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .banco-logo-upload-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .banco-form-acciones {
+    flex-direction: column;
+  }
+
+  .banco-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.banco-btn-delete {
+  background-color: transparent;
+  color: red;
+  border: none;
+  cursor: pointer;
+}
+.banco-btn-delete:hover {
+  color: darkred;
+}
+

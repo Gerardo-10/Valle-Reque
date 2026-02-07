@@ -1,0 +1,611 @@
+:root {
+  --primary-color: #4caf50;
+  --primary-hover: #45a049;
+  --danger-color: #f44336;
+  --danger-hover: #d32f2f;
+  --success-color: #4caf50;
+  --text-color: #502929;
+  --text-light: #666;
+  --border-color: #ddd;
+  --bg-color: #f9f9f9;
+  --light-bg: #f5f5f5;
+  --white: #fff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --focus1: rgb(46, 155, 60);
+  --focus2: 0 0 0 2px rgba(90, 173, 79, 0.342);
+  --primary-green: #4caf50;
+  --primary-blue: #2196f3;
+}
+
+
+/* Header */
+header {
+  margin-bottom: 20px;
+  background: var(--gradient-primary);
+}
+
+.contenedor-terrenos{
+    background-color: #fff;
+}
+.contenedor-terreno{
+    background-color: #fff;
+}
+
+.terreno-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  margin-bottom: 5px; /* Más espacio debajo del header */
+  border-bottom: none; /* Línea separadora más definida */
+  border-radius: 10px;
+  background: linear-gradient(to right, var(--primary-green), var(--primary-blue)); /* Degradado verde a azul */
+  color: var(--text-light); /* Color de texto blanco para contrastar con el fondo */
+  box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+.terreno-container h1{
+  color: var(--text-light);
+  font-size: 35px; 
+  margin: 0;
+  font-weight: 700; /* Ligeramente más negrita */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.terreno-buttons {
+  display: flex;
+  gap: 10px; /* espacio entre botones */
+}
+
+.terreno-btn-primary {
+  background-color: rgba(255, 255, 255, 0.25); /* Verde principal para "Agregar" */
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para botones principales */
+  padding: 10px 15px;
+  border-radius: var(--radius-medium);
+  transition: all var(--transition-speed) ease;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.terreno-btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--text-light);
+  opacity: 0.95;
+  transform: translateY(-2px); /* Pequeño efecto hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.terreno-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.terreno-btn-primary-modal {
+  background-color: var(--primary-green);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 15px;
+  border-radius: var(--radius-medium);
+  transition: all var(--transition-speed) ease;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.terreno-btn-primary-modal:hover {
+  background-color: green;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para la barra de búsqueda y filtros */
+.buscarterreno-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.buscarterreno-box {
+  flex: 1;
+  position: relative;
+}
+
+.buscarterreno-box input {
+  width: 100%;
+  padding: 12px 15px;
+  padding-right: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+}
+
+.terreno-search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.filtrarterreno-box {
+  width: 200px;
+}
+
+.filtrarterreno-box select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0l6 6 6-6z" fill="%23999"/></svg>')
+    no-repeat;
+  background-position: calc(100% - 15px) center;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.buscarterreno-box input:focus {
+  border-color: rgb(46, 155, 60);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(90, 173, 79, 0.342);
+}
+
+.filtrarterreno-box select:focus {
+  border-color: rgb(46, 155, 60);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(90, 173, 79, 0.342);
+}
+
+/* Table */
+.terreno-table-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.terreno-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.terreno-table th {
+  background-color: #f5f5f5;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terreno-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terreno-table tr:last-child td {
+  border-bottom: none;
+}
+
+.terreno-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.terreno-table th,
+.terreno-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+/* Estado */
+.terreno-estado {
+  min-width: 130px;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.estado-columna {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.terreno-estado-disponible {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.terreno-estado-vendido {
+  background-color: rgba(48, 48, 48, 0.1);
+  color: #000000;
+}
+
+.terreno-estado-reservado {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+}
+
+.terreno-estado-nodisponible {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.terreno-estado-enproceso {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+
+
+/* Action Buttons */
+.terreno-columna-acciones {
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+}
+
+.terreno-btn-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+
+.terreno-btn-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.terreno-btn-edit {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+
+.terreno-btn-edit:hover {
+  background-color: #2196f3;
+  color: white;
+}
+
+.terreno-btn-delete {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.terreno-btn-delete:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes terreno-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modals */
+.terreno-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: terreno-fadeIn 0.3s ease;
+}
+
+.terreno-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.terreno-modal-content {
+  background-color: var(--bg-white);
+  padding: 15px;
+  border-radius: var(--radius-large);
+  width: 90%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: terreno-slideIn 0.3s ease;
+}
+
+@keyframes terreno-slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.terreno-modal-small {
+  max-width: 450px;
+}
+
+.terreno-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+  background: linear-gradient(to right, var(--primary-green), var(--primary-blue)); /* Añadir este degradado */
+  color: var(--text-light); /* Esto haría todo el texto del header blanco por defecto */
+  border-radius: var(--radius-large);
+}
+
+.terreno-modal-title {
+  display: flex;
+}
+
+.terreno-icon-circle {
+  width: 50px;
+  height: 50px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  padding: 15px;
+}
+
+.terreno-icon-warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: var(--warning-color);
+}
+
+.terreno-icon-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-color);
+}
+
+.terreno-modal-title h2 {
+  font-size: 28px;
+  margin: 5px;
+  color: var(--text-light);
+}
+
+.terreno-modal-title p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 5px;
+}
+
+.terreno-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-light);
+  background: none;
+  border: none;
+}
+
+.terreno-modal-body {
+  padding: 20px;
+}
+
+.terreno-form-group {
+  margin-bottom: 15px;
+}
+
+.terreno-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.terreno-form-group input,
+.terreno-form-group select,
+.terreno-form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.terreno-form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.terreno-price-input {
+  position: relative;
+}
+
+.terreno-price-input span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.terreno-price-input input {
+  padding-left: 25px;
+}
+
+.terreno-modal-footer {
+  padding: 15px 20px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.terreno-btn-secondary {
+  background-color: #f5f5f5;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.terreno-btn-secondary:hover {
+  background-color: #e9e9e9;
+}
+
+.terreno-btn-danger {
+  background-color: var(--danger-color);
+  color: var(--white);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.terreno-btn-danger:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .buscarterreno-container {
+    flex-direction: column;
+  }
+
+  .filtrarterreno-box {
+    width: 100%;
+  }
+
+  .terreno-table-container {
+    overflow-x: auto;
+  }
+
+  .terreno-table {
+    min-width: 800px;
+  }
+
+  .terreno-modal-content {
+    width: 95%;
+  }
+}
+
+.paginacion-container {
+  display: flex;
+  justify-content: center; /* Centra los botones del paginador */
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px; /* Espacio entre los botones de paginación */
+  flex-wrap: wrap; /* Permite que los botones se envuelvan a la siguiente línea si hay muchos */
+}
+
+.btn-paginacion {
+  background-color: #007bff; /* Color azul para los botones */
+  color: white;
+  border: none;
+  padding: 8px 15px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.1s ease; /* Transición suave al pasar el ratón */
+  min-width: 40px; /* Asegura un ancho mínimo para botones con iconos (<< < > >>) */
+  height: 38px; /* Altura fija para que todos los botones sean del mismo tamaño */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil para profundidad */
+}
+
+.btn-paginacion:hover:not(:disabled) {
+  background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+  transform: translateY(-1px); /* Efecto ligero de "levantar" */
+}
+
+.btn-paginacion:disabled {
+  background-color: #cccccc; /* Color gris para botones deshabilitados */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-paginacion.activo {
+  background-color: #28a745; /* Color verde para la página activa */
+  font-weight: bold;
+  border: 1px solid #218838; /* Borde para la página activa */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Sombra más pronunciada para la activa */
+}
+
+.paginacion-ellipsis {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+  margin: 0 5px; /* Espacio alrededor de los puntos suspensivos */
+  user-select: none; /* Evita que se pueda seleccionar el texto "..." */
+}
+
+/* Puedes añadir más estilos responsivos si es necesario */
+@media (max-width: 768px) {
+  .paginacion-container {
+    gap: 5px; /* Reduce el espacio entre botones en pantallas pequeñas */
+  }
+  .btn-paginacion {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    min-width: 35px;
+    height: 35px;
+  }
+}
+
+.clientes-por-pagina-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 8px;
+  font-size: 14px;
+}
+.clientes-por-pagina-container label {
+  font-weight: 500;
+}
+.clientes-por-pagina-container select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.terreno-estado {
+  display: inline-block;
+  min-width: 130px;
+  text-align: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}

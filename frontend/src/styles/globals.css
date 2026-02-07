@@ -1,0 +1,230 @@
+/* ==========================
+   Fuentes & Variables
+========================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* Colores principales */
+  --primary-gradient: linear-gradient(135deg, #4caf50 0%, #2196f3 100%);
+  --primary-green: #4caf50;
+  --primary-blue: #2196f3;
+  --accent-color: #4caf50;
+
+  /* Colores de texto */
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-light: #888;
+
+  /* Colores de fondo */
+  --bg-light: #f8f9fa;
+  --bg-white: #fff;
+
+  /* Bordes y sombras */
+  --border-color: #e0e0e0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Radios */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 70px;
+  --header-height: 70px;
+
+  /* Animación */
+  --transition: all 0.3s ease;
+}
+
+/* ==========================
+   Reset & Base
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* ==========================
+   Sidebar Overlay (Mobile)
+========================== */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================
+   Responsive Design
+========================== */
+
+/* ≥ 1200px */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ≤ 992px */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .menu-toggle-mobile {
+    display: flex;
+  }
+
+  .search-box {
+    display: none;
+  }
+}
+
+/* ≤ 768px */
+@media (max-width: 768px) {
+  .top-header {
+    padding: 0 15px;
+  }
+
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+
+  .welcome-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .welcome-content h2 {
+    font-size: 20px;
+  }
+
+  .welcome-content p {
+    font-size: 14px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .user-dropdown {
+    width: 250px;
+    right: -10px;
+  }
+
+  .header-left h1 {
+    font-size: 18px;
+  }
+
+  .activity-text {
+    font-size: 13px;
+  }
+}
+
+/* ≤ 576px */
+@media (max-width: 576px) {
+  .top-header {
+    padding: 0 10px;
+  }
+
+  .content-wrapper {
+    padding: 15px 10px;
+  }
+
+  .welcome-card {
+    padding: 15px;
+  }
+
+  .welcome-content h2 {
+    font-size: 18px;
+  }
+
+  .welcome-content p {
+    font-size: 13px;
+  }
+
+  .welcome-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dashboard-card {
+    padding: 15px;
+  }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .card-value {
+    font-size: 18px;
+  }
+
+  .header-left h1 {
+    font-size: 16px;
+  }
+
+  .dropdown-header {
+    padding: 15px;
+  }
+
+  .avatar-large {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-details h4 {
+    font-size: 14px;
+  }
+
+  .user-details p {
+    font-size: 12px;
+  }
+}

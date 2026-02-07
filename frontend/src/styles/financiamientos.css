@@ -1,0 +1,633 @@
+/* General Body and Container */
+/* Variables CSS para facilitar la gestión de colores y espaciados */
+:root {
+    --primary-green: #28a745; /* Verde vibrante para acciones principales */
+    --primary-blue: #17a2b8; /* Azul complementario para degradados y detalles */
+    --accent-blue: #007bff; /* Azul estándar para focos y resaltados */
+    --text-dark: #343a40; /* Texto oscuro principal */
+    --text-medium: #6c757d; /* Texto gris para detalles */
+    --text-light: #f8f9fa; /* Texto claro (usado en fondos oscuros) */
+    --bg-light: #f8f9fa; /* Fondo muy claro para el body */
+    --bg-white: #ffffff; /* Fondo blanco para contenedores */
+    --border-light: #e0e0e0; /* Borde claro */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Sombra suave */
+    --shadow-medium: rgba(0, 0, 0, 0.15); /* Sombra media */
+    --shadow-strong: rgba(0, 0, 0, 0.25); /* Sombra fuerte para modales */
+    --radius-small: 5px;
+    --radius-medium: 8px;
+    --radius-large: 10px;
+    --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light); /* Fondo gris claro, consistente con otras páginas */
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.financiamiento-container {
+    padding: 0;
+    background-color: var(--bg-light); /* Fondo blanco para el área de contenido principal */
+    margin: auto; /* Centrado automático */
+    max-width: 1600px; /* Ancho máximo para mantener el contenido centrado */
+    border-radius: var(--radius-large); /* Bordes más redondeados */
+    box-shadow: 0 4px 15px var(--shadow-light); /* Sombra más pronunciada pero suave */
+    overflow: hidden;
+}
+
+/* Header Section */
+.financiamiento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    margin-bottom: 5px; /* Más espacio debajo del header */
+    border-bottom: none; /* Línea separadora más definida */
+    border-radius: 10px;
+    background: linear-gradient(to right, var(--primary-green), var(--primary-blue)); /* Degradado verde a azul */
+    color: var(--text-light); /* Color de texto blanco para contrastar con el fondo */
+    box-shadow: 0 4px 10px var(--shadow-medium); /* Sombra sutil para darle profundidad */
+}
+
+.financiamiento-header h1 {
+    color: var(--text-light);
+    font-size: 35px; 
+    margin: 0;
+    font-weight: 700; /* Ligeramente más negrita */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.financiamiento-header-icon {
+    margin-right: 15px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+/* General Button Styles */
+.btn {
+    padding: 10px 22px;
+    border-radius: var(--radius-medium); /* Bordes redondeados para botones */
+    cursor: pointer;
+    font-size: 15px; /* Tamaño de fuente ligeramente más grande */
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espacio entre icono y texto */
+    text-decoration: none; /* Asegurar que no tengan subrayado */
+    white-space: nowrap;
+}
+
+.btn:hover {
+    opacity: 0.95;
+    transform: translateY(-2px); /* Pequeño efecto hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: rgba(255, 255, 255, 0.25); /* Verde principal para "Agregar" */
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para botones principales */
+    padding: 10px 15px; /* Padding ajustado */
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: var(--text-light);
+}
+
+/* Specific Card Action Buttons */
+.btn-outline {
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    padding: 8px 16px; /* Padding ajustado */
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all var(--transition-speed) ease;
+    display: inline-flex; /* Para alinear íconos si se añaden */
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.btn-outline.btn-danger {
+    color: #dc3545; /* Rojo para "Desactivar" */
+    border-color: #dc3545;
+}
+
+.btn-outline.btn-danger:hover {
+    background-color: #dc3545;
+    color: var(--text-light);
+    box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+}
+
+.btn-outline.btn-success {
+    color: var(--primary-green); /* Verde para "Activar" */
+    border-color: var(--primary-green);
+}
+
+.btn-outline.btn-success:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+}
+
+.btn-outline.btn-info {
+    color: var(--primary-blue); /* Azul para "Editar" */
+    border-color: var(--primary-blue);
+}
+
+.btn-outline.btn-info:hover {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    box-shadow: 0 2px 6px rgba(23, 162, 184, 0.3);
+}
+
+/* Modal Action Buttons */
+.btn-secondary {
+    background-color: var(--text-medium); /* Gris para "Cancelar" */
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-agregar { /* Botón de "Guardar" o "Actualizar" en modales */
+    background-color: var(--primary-green); /* Verde principal */
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+}
+
+.btn-agregar:hover {
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.35);
+}
+
+/* Filters and Search Bar */
+.financiamiento-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative; /* Asegura un buen apilamiento */
+    z-index: 1; /* Asegura que esté por encima de la sombra del header */
+}
+
+.financiamiento-search-box {
+    position: relative; /* Esencial para posicionar el icono dentro */
+    flex-grow: 1;
+    max-width: 450px;
+}
+
+.financiamiento-search-box input {
+    width: 100%;
+    padding: 12px 18px 12px 48px; /* Ajustado el padding-left para dejar espacio a la lupa */
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-medium);
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: var(--bg-white);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.financiamiento-search-box input:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+.financiamiento-search-box .fa-search { /* Esta es la regla para la lupa de Font Awesome */
+    position: absolute; /* Fuerza el posicionamiento absoluto */
+    left: 18px; /* Mueve la lupa 15px desde el borde izquierdo del input */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajuste final para centrado vertical perfecto */
+    color: var(--text-medium); /* Color del icono */
+    font-size: 17px; /* Tamaño del icono */
+    pointer-events: none; /* Asegura que no bloquee el clic en el input */
+    z-index: 3; /* Asegura que esté por encima del input si hay otros elementos */
+}
+
+.financiamientos-search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(#218838);
+}
+
+.financiamiento-filter-selects {
+    display: flex;
+    gap: 15px;
+}
+
+.financiamiento-filter-selects select {
+    padding: 10px 18px; /* Padding ajustado */
+    border: 1px solid var(--border-light); /* Usamos la variable de borde */
+    border-radius: var(--radius-medium); /* Usamos la variable de radio */
+    font-size: 15px;
+    color: var(--text-dark); /* Color de texto del select */
+    background-color: var(--bg-white); /* Usamos la variable de fondo */
+    cursor: pointer;
+    -webkit-appearance: none; /* Eliminar estilos nativos de la flecha */
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* SVG para la flecha que apunta HACIA ABAJO por defecto */
+    /* Esta es una flecha de triángulo simple que apunta hacia abajo */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%2069.9L159.2%20197.8c-3.1%203.1-7.2%204.7-11.3%204.7s-8.2-1.6-11.3-4.7L5.4%2069.9c-3.1-3.1-5.4-7.6-5.4-11.3%200-8.9%207.2-16.1%2016.1-16.1h259.6c8.9%200%2016.1%207.2%2016.1%2016.1%200%203.6-2.3%208.2-5.4%2011.3z%22%2F%3E%3C%2Fsvg%3E');
+    
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 40px; /* Más padding a la derecha para la flecha */
+    
+    transition: border-color var(--transition-speed) ease; /* Transición solo para el borde */
+}
+
+.financiamiento-filter-selects select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+    outline: none;
+    
+    /* SVG para la flecha que apunta HACIA ARRIBA cuando está en foco */
+    /* Este es el SVG original que tenías, que apunta hacia arriba */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%20197.8L159.2%2069.9c-3.1-3.1-7.2-4.7-11.3-4.7s-8.2%201.6-11.3%204.7L5.4%20197.8c-3.1%203.1-5.4%207.6-5.4%2011.3%200%208.9%207.2%2016.1%2016.1%2016.1h259.6c8.9%200%2016.1-7.2%2016.1-16.1%200-3.6-2.3-8.2-5.4-11.3z%22%2F%3E%3C%2Fsvg%3E');
+}
+
+
+/* Cards Container */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Tarjetas ligeramente más grandes */
+    gap: 25px; /* Mayor espacio entre tarjetas */
+    margin: 15px;
+}
+
+/* Individual Card */
+.card {
+    background-color: #fff;
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra más definida */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; 
+  padding: 10px;        
+  background-color: #fff; 
+  border-bottom: 1px solid #f0f0f0;
+}
+
+
+.card-body {
+    padding: 20px; /* Más padding */
+    flex-grow: 1;
+}
+
+.card-title {
+    text-align: center;
+    margin-bottom: 15px; /* Más espacio */
+}
+
+.card-title h2 {
+    font-size: 24px; /* Título de tarjeta más grande */
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.financiamiento-badge {
+    padding: 5px 10px;
+    border-radius: 5px; /* Bordes ligeramente más redondeados */
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    display: inline-block; /* Para que ocupe solo el ancho de su contenido */
+}
+
+.financiamiento-badge.active {
+    background-color: #4CAF50; /* Verde vibrante */
+}
+
+.financiamiento-badge.inactive {
+    background-color: #6c757d; /* Gris para inactivo */
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.card-text .label {
+    font-weight: 600; /* Etiquetas más destacadas */
+    color: #333;
+}
+
+.card-text .value {
+    color: #666; /* Valores un poco más suaves */
+}
+
+.card-text .highlight {
+    color: #28a745; /* Verde principal para resaltar */
+    font-weight: 700; /* Más negrita */
+}
+
+.card-footer {
+    padding: 15px 20px; /* Padding consistente */
+    border-top: 1px solid #f0f0f0;
+    background-color: #f9fbfd; /* Fondo ligeramente azulado para el footer */
+    text-align: center;
+}
+
+.card-footer .d-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Modal Styles */
+.modal-financiamiento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente más oscuro */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);/* Para compatibilidad con Safari */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.modal-financiamiento.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--bg-white); /* Fondo blanco para el contenido del modal */
+    padding: 25px 30px; /* Más padding general */
+    border-radius: var(--radius-large); /* Bordes más redondeados */
+    width: 90%;
+    max-width: 550px; /* Ancho máximo un poco mayor para modales */
+    box-shadow: 0 12px 35px var(--shadow-strong); /* Sombra más fuerte para modales */
+    transform: translateY(-50px); /* Pequeño efecto de entrada */
+    opacity: 0; /* Inicialmente invisible */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease-out;
+}
+
+.modal-financiamiento.active .modal-content {
+    transform: translateY(0);
+    opacity: 1; /* Se vuelve visible */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    background: linear-gradient(to right, var(--primary-green), var(--primary-blue)); /* Añadir este degradado */
+    color: var(--text-light); /* Esto haría todo el texto del header blanco por defecto */
+    border-radius: var(--radius-large);
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/*.modal-title .icon-circle {
+    background: linear-gradient(45deg, #28a745, #4CAF50);
+    color: white;
+    width: 45px; 
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; 
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3); 
+}*/
+
+.modal-title h2 {
+    font-size: 28px; /* Título de modal más grande */
+    color: var(--text-light);
+    margin: 0 10px 6px 0;
+}
+
+.modal-header .close {
+    font-size: 32px; /* Ícono de cierre más grande */
+    cursor: pointer;
+    color: var(--text-light); /* Color más suave */
+    transition: color var(--transition-speed) ease;
+    margin-right: -5px; /* Un poco hacia afuera si es necesario, o 0 si está bien */
+    margin-top: -5px; /* Un poco hacia arriba si es necesario, o 0 si está bien */
+}
+
+.modal-header .close:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding-bottom: 25px; /* Más espacio inferior en el body */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Más espacio entre grupos de formulario */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Labels más fuertes */
+    color: #444; /* Color de label más oscuro */
+    font-size: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px; /* Más padding en inputs */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 15px;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+.form-group input[type="file"] {
+    display: block; /* Para que ocupe su propia línea */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #fcfcfc;
+}
+
+/* Custom file input appearance (for a more consistent look) */
+.form-group input[type="file"]::-webkit-file-upload-button {
+    background: linear-gradient(to right, var(--primary-green), var(--primary-blue)); /* Azul para el botón de archivo */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #138496;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px; /* Más espacio entre botones del footer */
+    border-top: none;
+    padding-top: 1px;
+    margin-top: 1px;
+}
+
+/* Utility Classes */
+.m-auto {
+    margin: auto;
+}
+
+.p-1 {
+    padding: 0.25rem !important;
+}
+
+.my-2 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.flex-row {
+    flex-direction: row !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.rounded {
+    border-radius: 0.25rem !important;
+}
+
+.gap-2 {
+    gap: 0.5rem !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .financiamiento-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .financiamiento-search-box {
+        max-width: 100%;
+    }
+
+    .financiamiento-filter-selects {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .financiamiento-filter-selects select {
+        width: 100%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 0 10px;
+        padding: 20px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn, .btn-secondary, .btn-agregar {
+        width: 100%;
+    }
+}
+
+

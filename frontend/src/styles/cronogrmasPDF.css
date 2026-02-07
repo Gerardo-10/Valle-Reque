@@ -1,0 +1,50 @@
+/* === ESTILOS DEL COMPONENTE CronogramaPDF === */
+
+.cronograma-container {
+  width: 800px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+.cronograma-titulo {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.cronograma-subtitulo {
+  font-weight: 600;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.cronograma-p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.cronograma-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.cronograma-tabla thead {
+  background-color: #eee;
+}
+
+.cronograma-tabla th,
+.cronograma-tabla td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+.cronograma-footer {
+  font-size: 10px;
+  margin-top: 30px;
+}

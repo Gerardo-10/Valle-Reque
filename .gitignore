@@ -1,0 +1,47 @@
+# =========================================================================
+# Reglas generales para el proyecto
+# =========================================================================
+
+# Archivos de IDEs (ej. VS Code)
+.vscode/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de entorno local (si los tienes)
+.env
+.flaskenv # Si usas flask-dotenv o similar
+.idea/ # Para PyCharm/IntelliJ
+
+# =========================================================================
+# Reglas específicas para el Backend (Python/Flask)
+# =========================================================================
+
+# Archivos de Python compilados
+backend/__pycache__/
+backend/*.pyc
+
+# Entornos virtuales (asumiendo que están dentro de la carpeta backend o en la raíz)
+backend/.venv/
+backend/venv/
+
+
+# Archivos de logs del backend
+backend/*.log
+
+# =========================================================================
+# Reglas específicas para el Frontend (React/Node.js)
+# =========================================================================
+
+# Dependencias de Node.js
+frontend/node_modules/
+
+# Archivos de compilación y empaquetado del frontend
+frontend/dist/
+frontend/build/
+frontend/.cache/
+
+# Archivos de configuración de entorno local del frontend (si los tienes)
+# Si tu .env del frontend está en 'frontend/.env'
+frontend/.env

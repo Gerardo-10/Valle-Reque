@@ -1,0 +1,768 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-green: #4caf50;
+  --primary-blue: #2196f3;
+  --gradient: linear-gradient(
+    90deg,
+    var(--primary-green) 0%,
+    var(--primary-blue) 100%
+  );
+  --light-bg: #e8f5e9;
+  --white: #ffffff;
+  --dark: #212121;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --text-lighter: #999999;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --red: #832e26;
+  --green: #4caf50;
+  --blue: #2196f3;
+  --yellow: #ffc107;
+  --info-bg: #e3f2fd;
+  --info-color: #0d47a1;
+  --card-header-bg: #1a237e;
+  --parque-color: #4caf50;
+  --esquina-parque-color: #2e7d32;
+  --esquina-color: #ff9800;
+  --avenida-color: #2196f3;
+  --calle-color: #9c27b0;
+}
+
+/* Main Content */
+.proyecto-contenedor-principal {
+  width: 100%;
+}
+
+.proyecto-contenedor {
+  max-width: 1500px;
+  margin: 30px auto;
+  background-color: #fff;
+}
+
+/* Header */
+.proyecto-header {
+  background: linear-gradient(to right, var(--primary-green), var(--primary-blue));
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  color: var(--text-light);
+  box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+.proyecto-header-icon {
+  font-size: 24px;
+  color: var(--white);
+}
+
+.proyecto-header h2 {
+  font-size: 35px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-right: auto;
+  margin-bottom: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.proyecto-busqueda-contenedor {
+  position: relative;
+  width: 300px;
+}
+
+.proyecto-buscar-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.proyecto-buscar-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-lighter);
+}
+
+.proyecto-boton-nuevo-proyecto {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.proyecto-boton-nuevo-proyecto:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 0.9;
+  border-color: var(--text-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Projects Container */
+.proyecto-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Project Card */
+.proyecto-tarjeta {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.proyecto-titulo {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.proyecto-tarjeta-contenedor {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+
+/* Project Details */
+.proyecto-detalles,
+.proyecto-indicadores {
+  padding: 20px;
+  border-right: 1px solid var(--border-color);
+}
+
+.proyecto-detalles h3,
+.proyecto-indicadores h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.proyecto-detalle-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.proyecto-detalle-row,
+.proyecto-indicadores-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Project Map */
+.proyecto-mapa {
+  width: 100%;
+  height: 100%;
+  height: 250px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.proyecto-mapa img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Project Actions */
+.proyecto-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.proyecto-boton-eliminar-proyecto {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 30px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.proyecto-boton-eliminar-proyecto:hover {
+  opacity: 0.9;
+  background-color: #da4032;
+  color: #e0e0e0;
+}
+
+.proyecto-boton-editar-proyecto {
+  background: var(--primary-green);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.proyecto-boton-editar-proyecto:hover {
+  opacity: 0.9;
+  background-color: #246b2f;
+  color: #e0e0e0;
+}
+
+/* --- Overlay del Modal --- */
+.modal-overlay-proyectos {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.modal-overlay-proyectos.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Contenedor del Modal --- */
+.modal-proyecto,
+.modal-precios {
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 100%;
+  max-width: 35%;
+  max-height: 90%;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 30px 20px;
+}
+
+.modal-proyecto.active,
+.modal-precios.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Header del Modal --- */
+.modal-header-proyecto,
+.modal-header-precios {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-title);
+  position: relative;
+}
+
+/* Contenedor del ícono y el título */
+.modal-header-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ícono */
+.modal-icono {
+  font-size: 24px;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+}
+
+/* Título */
+.modal-header-proyecto h2,
+.modal-header-precios h2 {
+  margin: 0;
+  font-size: 26px;
+  color: var(--green);
+  line-height: 1.2;
+}
+
+/* --- Botón de Cierre --- */
+.modal-cerrar {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease, background 0.2s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-cerrar:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #e53935;
+}
+
+/* Mensaje de Span*/
+.modal-subtitulo-proyecto {
+  font-size: 16px;
+  color: var(--text-subtle, #6c757d);
+  margin: 10px 0 10px 0;
+  line-height: 1.4;
+}
+
+.modal-subtitulo-proyecto span {
+  display: block;
+  text-align: justify;
+}
+
+/* --- Estilos personalizados para scrollbar del modal --- */
+.modal-proyectos::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal-proyectos::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 25px;
+}
+
+.modal-proyectos::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+/* Estilos para el input de archivo oculto */
+.hidden-input {
+  display: none;
+}
+
+/* Estilo del botón minimalista */
+.upload-button-minimal {
+  display: inline-block;
+  padding: 8px 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  background-color: #f8f8f8; 
+  color: #333; 
+  cursor: pointer;
+  font-size: 0.9em; 
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.upload-button-minimal:hover {
+  background-color: #e9e9e9; 
+  border-color: #bbb;
+}
+
+/* Estilo para el nombre del archivo seleccionado */
+.file-name-minimal {
+  margin-left: 10px;
+  font-size: 0.85em;
+  color: #666; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  max-width: 150px; 
+}
+
+/* Contenedor flexible para alinear el botón y el nombre */
+.file-input-minimal-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+  flex-wrap: wrap;
+}
+
+/* Estilo para la preview del mapa */
+.preview-mapa {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-mapa img {
+  width: 30%;
+  object-fit: contain;
+}
+
+/* Estilo para el modal de Configurar Precios */
+
+/* Alert */
+.modal-alerta {
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-alerta-proyecto {
+  background-color: rgb(170, 200, 255);
+  color: rgb(0, 0, 255);
+}
+
+.modal-alerta svg {
+  font-size: 18px;
+}
+
+/* Estilos para el grid de precios */
+.modal-precios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.precio-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.precio-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.precioMetro {
+  font-size: 12px;
+  color: #555555;
+  font-weight: 500;
+}
+
+.precio-parque::before {
+  background: var(--parque-color);
+}
+
+.precio-esquina-parque::before {
+  background: var(--esquina-parque-color);
+}
+
+.precio-esquina::before {
+  background: var(--esquina-color);
+}
+
+.precio-avenida::before {
+  background: var(--avenida-color);
+}
+
+.precio-calle::before {
+  background: var(--calle-color);
+}
+
+.precio-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.precio-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.precio-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.precio-parque .precio-icon {
+  background: var(--parque-color);
+}
+
+.precio-esquina-parque .precio-icon {
+  background: var(--esquina-parque-color);
+}
+
+.precio-esquina .precio-icon {
+  background: var(--esquina-color);
+}
+
+.precio-avenida .precio-icon {
+  background: var(--avenida-color);
+}
+
+.precio-calle .precio-icon {
+  background: var(--calle-color);
+}
+
+.precio-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.input-precio {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.precio-simbolo {
+  position: absolute;
+  left: 10px;
+  font-weight: 600;
+  color: #666666;
+  z-index: 1;
+}
+
+.input-precio input {
+  padding-left: 30px !important;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.precio-description {
+  font-size: 12px;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Resumen de Precios */
+.precio-resumen {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.precio-resumen h4 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.resumen-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.resumen-label {
+  font-weight: 500;
+  color: #666666;
+}
+
+.resumen-value {
+  font-weight: 600;
+  color: #333333;
+  font-size: 16px;
+}
+
+.btn-atras {
+  background-color: #f5f5f5;
+  color: var(--color-texto-secundario);
+  border: 1px solid var(--color-borde);
+  padding: 10px 20px;
+  border-radius: var(--radio-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.btn-atras:hover {
+  background-color: #e9e9e9;
+}
+
+/* Estilos para el modal de etapas por proyecto */
+/* Botones grandes de agregar y eliminar manzana */
+.botones-eliminar-agregar-manzana, .botones-eliminar-agregar {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.btn-red {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-red:hover {
+  background-color: #c0392b;
+}
+
+.btn-green {
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-green:hover {
+  background-color: #1e8449;
+}
+
+/* Lotes Disponibles */
+.lotes-disponible {
+  margin-top: 10px;
+}
+
+.lotes-disponible .cantidad-disponible{
+  color: green
+}
+
+/* Botones pequeños de + y - */
+.btn-icon-red, .btn-icon-green {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btn-icon-red {
+  color: #e74c3c;
+}
+
+.btn-icon-green {
+  color: #27ae60;
+}
+
+.btn-icon-red:hover {
+  color: #c0392b;
+}
+
+.btn-icon-green:hover {
+  color: #1e8449;
+}
+
+/* Inputs 50/50 en la fila */
+.inputs-manzana {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.form-group-manzana {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-manzana input {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group-manzana select {
+  padding: 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group-manzana label {
+  margin: 5px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Resumen mejorado */
+.manzana-resumen {
+  background-color: #f8f9fa;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.manzana-resumen h4 {
+  margin-bottom: 8px;
+  grid-column: 1 / -1;
+}
+
+.resumen {
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+
+.resumen p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.resumen ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 5px 0 0 0;
+}
+
+.resumen ul li {
+  margin-bottom: 4px;
+}

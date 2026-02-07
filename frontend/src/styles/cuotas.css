@@ -1,0 +1,717 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-green: #4CAF50;
+    --primary-blue: #2196F3;
+    --light-bg: #f0f7f0;
+    --white: #ffffff;
+    --dark-blue: #002171;
+    --navy-blue: #001064;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --yellow: #FFC107;
+    --green: #4CAF50;
+}
+
+.btn-cancelada {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #ccc; /* o el color que prefieras */
+  border-color: #999; /* si usas bordes personalizados */
+  color: #666; /* si deseas cambiar el texto cuando esté cancelado */
+}
+
+.cuotas-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Search and Filter */
+.search-filter-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.buscar-cuotas {
+    position: relative;
+    flex: 1;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.filter-container {
+    width: 200px;
+}
+
+.filter-button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Client Card */
+.client-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.client-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.client-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.client-details p {
+    font-size: 14px;
+}
+
+.client-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-cuotas {
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-historial {
+    background: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-cuotas:hover,
+  .btn-historial:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+  }
+
+  .btn-ver-constancia {
+    background-color: #4a90e2; /* Azul moderno */
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-ver-constancia:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-ver-constancia:active {
+    transform: translateY(0);
+  }
+
+  .btn-ver-constancia:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.4);
+  }
+
+
+/* Contract Section */
+.contract-section {
+    margin-bottom: 30px;
+}
+
+.contract-header {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contract-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.contract-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    flex: 1;
+}
+
+.btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-print:hover {
+  transform: translateY(-1px);
+}
+
+.btn-print:active {
+  transform: translateY(0);
+}
+
+.btn-print:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.4);
+}
+
+.contract-table-container {
+    background-color: var(--white);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.contract-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contract-table th,
+.contract-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.contract-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+
+
+
+.contract-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .contract-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .contract-table tr:hover {
+    background-color: #f0f7ff;
+  }
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.paid {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+
+
+.btn-realizar-pago {
+    background: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-realizar-pago:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+  }
+
+/* Modal */
+.modalpago {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modalpago-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+
+
+.modalpago-content {
+    background-color: var(--white);
+    margin: 50px auto;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1001;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalpago-header {
+    background: var(--gradient);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modalpago-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modalpago-title i {
+    font-size: 20px;
+    color: #f0f7f0;
+}
+
+.modalpago-title h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0f7f0;
+}
+
+.close-modalpago {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #f0f7f0;
+}
+
+.modalpago-body {
+    padding: 20px;
+}
+
+.modalpago-footer {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+}
+
+
+
+
+/* Estilos para la vista previa de la imagen */
+.image-preview {
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+
+  .modalpago-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    gap: 10px;
+  }
+
+
+  .btn-realizar {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-realizar:hover {
+    background-color: #45a049;
+  }
+
+
+
+/* Payment Info Grid */
+.payment-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.payment-label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.payment-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    appearance: none;
+    background-color: var(--white);
+}
+
+.select-wrapper::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    pointer-events: none;
+}
+
+/* Upload Container */
+.upload-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.upload-preview {
+    width: 60px;
+    height: 60px;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-preview i {
+    font-size: 24px;
+    color: var(--text-light);
+}
+
+.upload-info {
+    flex: 1;
+}
+
+.upload-text {
+    color: var(--primary-blue);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.upload-desc {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+
+
+.btn-realizar {
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 48%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .client-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .client-details {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .client-actions {
+        width: 100%;
+    }
+
+    .payment-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contract-table-container {
+        overflow-x: auto;
+    }
+
+    .contract-table {
+        min-width: 700px;
+    }
+}
+
+btn-realizar-pago {
+  background: var(--dark-blue); /* Color de fondo */
+  color: var(--white); /* Color de texto */
+  border: none;
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 8px 15px; /* Espaciado interno */
+  font-size: 13px; /* Tamaño de la fuente */
+  cursor: pointer; /* Estilo del cursor */
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover para el botón "Pagar" */
+.btn-realizar-pago:hover {
+  transform: translateY(-2px); /* Efecto de subida al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3); /* Sombra cuando se pasa el mouse */
+}
+
+/* Estilo para el botón del ojo */
+.btn-ojito {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  padding: 8px 12px; /* Espaciado alrededor del ícono */
+  font-size: 16px; /* Tamaño del ícono */
+  cursor: pointer; /* Estilo del cursor */
+  margin-left: 10px; /* Separación entre el botón "Pagar" y el ojo */
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover para el botón del ojo */
+.btn-ojito:hover {
+  transform: translateY(-2px); /* Efecto de subida al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3); /* Sombra cuando se pasa el mouse */
+}
+
+/* Efecto cuando se presiona el botón */
+.btn-ojito:active {
+  transform: scale(0.95); /* Efecto de contracción al presionar */
+}
+
+.payment-label{
+    color: rgb(97, 119, 95);
+}
+
+.contract-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--gap) * 0.5);
+  flex: 1 1 300px; /* se encoge mínimo a 300px */
+}
+
+/* Tipos y estados */
+.contract-type,
+.contract-status {
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+}
+
+/* Título del código de venta */
+.contract-header h3 {
+  flex: 1 1 100%;
+  text-align: center;
+  margin: var(--gap) 0 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+/* Botón de impresión */
+.btn-print {
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: var(--text-light);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-print:hover {
+  background: rgba(255,255,255,0.5);
+  transform: scale(1.1);
+}
+
+/* Contenedor de tabla */
+.contract-table-container {
+  padding: var(--gap);
+  background: #fff;
+}
+
+/* Responsive: apila columnas en móviles */
+@media (max-width: 600px) {
+  .contract-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .contract-info {
+    justify-content: center;
+  }
+}
+
+.cuota-estado {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+/* Estado: Pendiente (Amarillo) */
+.cuota-estado-pendiente {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #ff9800;
+}
+
+/* Estado: Pagada (Azul) */
+.cuota-estado-pagada {
+  background-color: rgba(33, 150, 243, 0.15);
+  color: #2196f3;
+}
+
+/* Estado: Con Retrazo (Rojo) */
+.cuota-estado-con-retrazo {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #f44336;
+}
+
+/* Estado: Cancelada (Gris) */
+.cuota-estado-cancelada {
+  background-color: rgba(158, 158, 158, 0.15);
+  color: #757575;
+}
+
+.btn-historial:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

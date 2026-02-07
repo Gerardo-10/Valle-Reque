@@ -1,0 +1,675 @@
+/* Estilos generales para ventas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f0f4f0;
+  color: #333;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+  background-color: #ccc !important; /* color gris deshabilitado */
+  border-color: #999 !important; /* opcional si usas bordes */
+  color: #666 !important; /* color de texto deshabilitado */
+}
+
+
+.venta-app-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.venta-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Estilos del encabezado */
+.venta-card-header {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.venta-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.venta-back-button {
+  color: white;
+  font-size: 18px;
+  margin-right: 15px;
+  text-decoration: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.venta-header-left h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.venta-header-left p {
+  font-weight: bold;
+  color: #504f4f;
+}
+
+.venta-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.venta-header-right {
+  font-size: 14px;
+}
+
+.venta-separator {
+  margin: 0 10px;
+}
+
+/* Estilos de las secciones de formulario */
+.venta-form-section {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.venta-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.venta-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.venta-form-group {
+  position: relative;
+}
+
+.venta-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.venta-form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.venta-form-input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+
+}
+
+
+.venta-select-container {
+  position: relative;
+}
+
+.venta-form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  appearance: none;
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+
+/* Estilos para el calendario */
+.venta-date-input-container {
+  position: relative;
+  display: flex;
+}
+
+.venta-calendar-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: none;
+  border: none;
+  color: #4299e1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.venta-calendar-dropdown {
+  position: absolute; /* ✅ O fixed si lo manejas con JS */
+  bottom: 100%; /* ✅ Para mostrarlo arriba del input */
+  left: 0;
+  z-index: 9999;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 15px;
+}
+
+
+.venta-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, #4CAF50, #2196F3);
+  color: white;
+}
+
+
+
+/* Encabezado del calendario */
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    color: white;
+}
+
+.venta-month-nav {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.venta-month-nav:hover {
+  background-color: #8a8888;
+}
+
+.venta-current-month {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.venta-weekday-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.venta-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.venta-dia {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.venta-dia:hover {
+  background-color: #f0f0f0;
+}
+
+.venta-dia-seleccionado {
+  background-color: #2196f3;
+  color: white;
+}
+
+.venta-dia-deshabilitado {
+  visibility: hidden;
+}
+
+/* Estilos para botones */
+.venta-button-container-center {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.venta-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.venta-button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.venta-btn-continuar {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.venta-btn-continuar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.venta-btn-confirmar {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.venta-btn-cotizacion {
+  background-color: #5339eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.venta-btn-cancelar {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Estilos para la sección de detalles */
+.venta-detalles-section {
+  padding: 20px;
+  transition: opacity 0.3s, max-height 0.5s;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.venta-hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.venta-section-header {
+  margin-bottom: 20px;
+}
+
+.venta-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.venta-detalles-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.venta-detalles-table th,
+.venta-detalles-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.venta-detalles-table th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.venta-constancia-cell {
+  text-align: center;
+}
+
+.venta-pdf-button {
+  background: none;
+  border: none;
+  color: #e42f2f;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+
+.venta-pdf-button:hover {
+  color: var(--red);
+}
+
+
+.venta-constancia{
+  background-color: #ddd;
+  margin-top: 30px;
+  width: 250px;;
+  height: 40px;
+}
+
+.venta-constancia label {
+  color: #0b7dda;
+  margin-left: 10px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.venta-constancia:hover{
+  background:#49506e;
+  color: #ffffff;
+}
+
+.venta-constancia label:hover{
+  color: #ffffff;
+  cursor: pointer;
+}
+
+
+
+/* Estilos para modales */
+.venta-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.venta-modal-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: ventaModalFadeIn 0.3s;
+}
+
+@keyframes ventaModalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.venta-modal-header {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.venta-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.venta-modal-body {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.venta-modal-icon-container {
+  margin-bottom: 20px;
+}
+
+.venta-modal-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 30px;
+}
+
+.venta-modal-icon-warning {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+
+.venta-modal-icon-success {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.venta-modal-message {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.venta-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.venta-btn-atras {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.venta-btn-continuar-modal {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Estilos para el modal de PDF */
+.venta-modal-pdf-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.venta-modal-pdf-header {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.venta-modal-pdf-body {
+  padding: 0;
+  max-height: calc(90vh - 130px);
+  overflow-y: auto;
+}
+
+.venta-contenido-vista-previa {
+  padding: 20px;
+}
+
+.venta-pdf-placeholder {
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed #ddd;
+  margin: 20px;
+}
+
+.venta-pdf-placeholder h4 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.venta-pdf-placeholder p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.venta-modal-pdf-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 20px;
+  border-top: 1px solid #eee;
+}
+
+.venta-btn-descargar-pdf {
+  background: linear-gradient(90deg, #4caf50 0%, #2196f3 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .venta-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .venta-header-right {
+    margin-top: 10px;
+  }
+
+  .venta-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venta-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .venta-btn-confirmar,
+  .venta-btn-cancelar {
+    width: 100%;
+  }
+}
+
+.estado-texto {
+  font-weight: bold;
+  background-color: white; /* asegura fondo blanco */
+  color: inherit; /* valor por defecto */
+}
+
+/* Colores solo para el texto según el estado */
+.SinEvaluar {
+  color: #fbc02d; /* amarillo */
+}
+
+.Evaluado {
+  color: #1e88e5; /* azul */
+}
+
+.NoDisponible {
+  color: #e53935; /* rojo */
+}
+
+.Activo {
+  color: #43a047; /* verde */
+}
+
+.texto-verde {
+  color: green;
+  font-weight: bold;
+}
+
+.texto-rojo {
+  color: red;
+  font-weight: bold;
+}
